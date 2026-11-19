@@ -14,7 +14,7 @@ SUB_HEADERS    = {"X-Device-Os": "Android"}
 SUB_HWID       = 5796126e-b9e9-4e3e-bfbc-4fe930796181              # свой hwid строкой; None = из токена ссылки или случайный
 FETCH_TIMEOUT  = 25
 
-THREADS      = 10
+THREADS      = 16
 XRAY_DIR     = "bin"
 XRAY_VERSION = "latest"
 
@@ -49,7 +49,7 @@ MIN_SPEED_MB_S   = 1.0             # МБ/с (мегаБАЙТ). 1 Мбит/с =
 
 SPEED_RETRIES     = 2              # ретраев на хост при 429/5xx (с паузой + Retry-After)
 SPEED_BACKOFF     = 1.5            # базовая пауза, дальше x2 + джиттер
-SPEED_CONCURRENCY = 4              # максимум одновременных спидтестов (анти-429)
+SPEED_CONCURRENCY = 8             # максимум одновременных спидтестов (анти-429)
 
 # --- GEO ---
 GEO_URL      = "https://2ip.io/"
