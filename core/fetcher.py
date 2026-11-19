@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Забор подписок с эмуляцией Happ: base64 / plain-ссылки / Happ-JSON (массив конфигов)."""
-import json, re, uuid
+"""Забор подписок с эмуляцией Happ: base64 / plain-ссылки / Happ-JSON.
+X-Hwid берётся из токена в URL (device-id), пустой ответ дампуется в debug/."""
+import json, os, re, uuid
+from urllib.parse import urlsplit
 import requests
 
 import config
@@ -55,17 +57,52 @@ def extract_raw_links(text, depth=0):
     return _SCHEME_RE.findall(t)
 
 
+def _hwid_from_url(url):
+    """В токене подписки часто зашит device-id: base64(JSON {"d": "..."})."""
+    try:
+        seg = urlsplit(url).path.rstrip("/").split("/")[-1]
+        j = json.loads(b64d(seg))
+        if isinstance(j, dict):
+            for k in ("d", "hwid", "device", "deviceId", "device_id"):
+                v = j.get(k)
+                if isinstance(v, str) and 8 <= len(v) <= 64:
+                    return v
+    except Exception:
+        pass
+    return None
+
+
+def _dump_empty(url, r):
+    try:
+        os.makedirs("debug", exist_ok=True)
+        name = re.sub(r"[^a-zA-Z0-9.-]", "_", urlsplit(url).netloc)[:60]
+        path = os.path.join("debug", f"sub_{name}.txt")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(f"URL: {url}\nSTATUS: {r.status_code}\n"
+                    f"Content-Type: {r.headers.get('Content-Type')}\n"
+                    f"Bytes: {len(r.content)}\n\n{r.text[:20000]}")
+        print(f"[sub] ⚠️ 0 ключей — ответ сохранён в {path}", flush=True)
+    except Exception:
+        pass
+
+
 def fetch_subscription(url):
+    hwid = getattr(config, "SUB_HWID", None) or _hwid_from_url(url) or HWID
     headers = {"User-Agent": config.SUB_USER_AGENT, "Accept": "*/*",
-               "X-Hwid": HWID, **config.SUB_HEADERS}
+               "X-Hwid": hwid, **config.SUB_HEADERS}
     r = requests.get(url, headers=headers, timeout=config.FETCH_TIMEOUT)
     r.raise_for_status()
     raws = extract_raw_links(r.text)
+    if not raws:
+        _dump_empty(url, r)
     links, bad = [], 0
     for raw in raws:
         d = parse_link(raw)
-        if d:
-            links.append(d)
-        else:
+        if d is None:
             bad += 1
+            continue
+        if getattr(config, "SKIP_HY2_OBFS", False) and d["scheme"] == "hy2" and d["obfs"]:
+            bad += 1
+            continue
+        links.append(d)
     return links, bad
