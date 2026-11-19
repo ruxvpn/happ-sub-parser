@@ -162,6 +162,14 @@ def _via_apis(session):
             return NAME2CODE.get((j.get("country") or "").lower()), j.get("city"), j.get("ip")
     except Exception:
         pass
+    try:
+        r = session.get("https://api.country.is/", timeout=10)
+        j = r.json()
+        cc = (j.get("country") or "").upper()
+        if cc in COUNTRIES:
+            return cc, None, j.get("ip")
+    except Exception:
+        pass
     return None, None, None
 
 
