@@ -11,7 +11,7 @@ RAW_FILE     = "subwork_raw.txt"
 BRAND          = "@RUXVPN"
 SUB_USER_AGENT = "Happ/4.2.1"
 SUB_HEADERS    = {"X-Device-Os": "Android"}
-SUB_HWID       = 5796126e-b9e9-4e3e-bfbc-4fe930796181              # свой hwid строкой; None = из токена ссылки или случайный
+SUB_HWID       = "5796126e-b9e9-4e3e-bfbc-4fe930796181"             # свой hwid строкой; None = из токена ссылки или случайный
 FETCH_TIMEOUT  = 25
 
 THREADS      = 16
