@@ -1,0 +1,29 @@
+name: parse-subs
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: parse-subs
+  cancel-in-progress: true
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python main.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add work.txt unknow.txt subwork.json subwork_raw.txt dead.txt 2>/dev/null || true
+          git diff --cached --quiet && echo "no changes" || (git commit -m "auto: refresh keys" && git push)
