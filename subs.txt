@@ -1,1 +1,2 @@
-
+https://vpn.vexaloriavpn.workers.dev/admin/sub?secret=vexaloria-admin-sub-v1-funzaygay&format=raw.
+https://vpn.xelaravpn.workers.dev/sub/eyJkIjoiNTc5NjEyNmUtYjllOS00ZTNlLWJmYmMtNGZlOTMwNzk2MTgxIiwiZSI6MCwibiI6IjJlNDMxNzU0YzYyYzE5NWUifQ.b0fd08ae79e7a92eae06140cb2fc3253496e786e8c86946d896a8cfd0fba30eb
