@@ -1,6 +1,6 @@
 [
   {
-    "remarks": "🇦🇱 Албания | @RUXVPN",
+    "remarks": "🇦🇹 Австрия | @RUXVPN",
     "log": {
       "loglevel": "warning"
     },
@@ -54,11 +54,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "185.171.82.185",
-              "port": 12445,
+              "address": "api.mediaroshcha.cc",
+              "port": 443,
               "users": [
                 {
-                  "id": "e81a8f30-23b9-5b7a-90d9-ec040f682220",
+                  "id": "56dec3ac-1a96-42e9-ad06-6d4219798fb3",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision"
                 }
@@ -70,44 +70,14 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "tia.kunisosi.bid",
-            "fingerprint": "edge",
-            "publicKey": "G4eNHGX_1QXsdr-GfxHBEscXmIYLncUW82i4FUFvY2k",
-            "shortId": "70a75d07aa1d1c04",
+            "serverName": "api.mediaroshcha.cc",
+            "fingerprint": "firefox",
+            "publicKey": "r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs",
+            "shortId": "a8",
             "spiderX": "/"
           }
         },
-        "tag": "al-g-001"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.171.82.185",
-              "port": 12445,
-              "users": [
-                {
-                  "id": "e81a8f30-23b9-5b7a-90d9-ec040f682220",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "tia.kunisosi.bid",
-            "fingerprint": "edge",
-            "publicKey": "G4eNHGX_1QXsdr-GfxHBEscXmIYLncUW82i4FUFvY2k",
-            "shortId": "70a75d07aa1d1c04",
-            "spiderX": "/"
-          }
-        },
-        "tag": "al-g-002"
+        "tag": "at-g-001"
       },
       {
         "protocol": "freedom",
@@ -120,7 +90,7 @@
     ],
     "observatory": {
       "subjectSelector": [
-        "al-g-"
+        "at-g-"
       ],
       "probeUrl": "https://www.gstatic.com/generate_204",
       "probeInterval": "5m",
@@ -532,14 +502,533 @@
         {
           "type": "field",
           "network": "tcp,udp",
-          "balancerTag": "al-g-balancer"
+          "balancerTag": "at-g-balancer"
         }
       ],
       "balancers": [
         {
-          "tag": "al-g-balancer",
+          "tag": "at-g-balancer",
           "selector": [
-            "al-g-"
+            "at-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "🇬🇧 Великобритания | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "143.246.219.3",
+              "port": 8444,
+              "users": [
+                {
+                  "id": "240cb330-efc6-4d06-b5de-eb5fa8c7cc47",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "www.bt.com",
+            "fingerprint": "firefox",
+            "publicKey": "kIT3aVeRCeqX48gmfHV8t-VTT8KE_O8g0-nZm_RH4EY",
+            "shortId": "ae8011590fe847fa",
+            "spiderX": "/"
+          }
+        },
+        "tag": "gb-g-001"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "gb-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "gb-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "gb-g-balancer",
+          "selector": [
+            "gb-g-"
           ],
           "strategy": {
             "type": "leastPing"
@@ -603,11 +1092,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "a58n97qm.devcdn.icu",
+              "address": "xray-vless-aac5-8z4azf.cranl.net",
               "port": 443,
               "users": [
                 {
-                  "id": "b432a23a-acff-425c-bf69-70480cd6ed09",
+                  "id": "aac58603-fe15-41e5-bd10-bae80815b082",
                   "encryption": "none"
                 }
               ]
@@ -618,20 +1107,40 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "a58n97qm.devcdn.icu",
-            "alpn": [
-              "http/1.1"
-            ],
-            "fingerprint": "firefox"
+            "serverName": "xray-vless-aac5-8z4azf.cranl.net"
           },
           "wsSettings": {
-            "path": "/stream/segment/3078a41dd7eb/",
+            "path": "/vless",
             "headers": {
-              "Host": "a58n97qm.devcdn.icu"
+              "Host": "xray-vless-aac5-8z4azf.cranl.net"
             }
           }
         },
         "tag": "de-g-001"
+      },
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "de10.mous-speed.site",
+              "port": 443,
+              "password": "DhRGKU0ex3QxEyLa5JUZcpvtQJvE6A_V"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "de10.mous-speed.site",
+            "alpn": [
+              "h2"
+            ],
+            "fingerprint": "randomized"
+          }
+        },
+        "tag": "de-g-002"
       },
       {
         "protocol": "freedom",
@@ -1073,7 +1582,7 @@
     }
   },
   {
-    "remarks": "🇭🇰 Гонконг | @RUXVPN",
+    "remarks": "🇮🇩 Индонезия | @RUXVPN",
     "log": {
       "loglevel": "warning"
     },
@@ -1127,30 +1636,31 @@
         "settings": {
           "vnext": [
             {
-              "address": "45.9.88.249",
+              "address": "id1vpn.jagoanip.my.id",
               "port": 443,
               "users": [
                 {
-                  "id": "e15d36a7-18eb-4760-a62c-396e6c85286d",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "id": "c3d91e48-6d7c-406d-aea3-b99c575dcd80",
+                  "encryption": "none"
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "s3.yandex.net",
-            "fingerprint": "firefox",
-            "publicKey": "PEaIN8cPwqeNAPRI1tR0t-0AD4JJwhxHSoAh0SoVDB8",
-            "shortId": "fde291",
-            "spiderX": "/"
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "id1vpn.jagoanip.my.id"
+          },
+          "wsSettings": {
+            "path": "/vless",
+            "headers": {
+              "Host": "id1vpn.jagoanip.my.id"
+            }
           }
         },
-        "tag": "hk-g-001"
+        "tag": "id-g-001"
       },
       {
         "protocol": "freedom",
@@ -1163,7 +1673,7 @@
     ],
     "observatory": {
       "subjectSelector": [
-        "hk-g-"
+        "id-g-"
       ],
       "probeUrl": "https://www.gstatic.com/generate_204",
       "probeInterval": "5m",
@@ -1575,533 +2085,14 @@
         {
           "type": "field",
           "network": "tcp,udp",
-          "balancerTag": "hk-g-balancer"
+          "balancerTag": "id-g-balancer"
         }
       ],
       "balancers": [
         {
-          "tag": "hk-g-balancer",
+          "tag": "id-g-balancer",
           "selector": [
-            "hk-g-"
-          ],
-          "strategy": {
-            "type": "leastPing"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "remarks": "🇮🇳 Индия | @RUXVPN",
-    "log": {
-      "loglevel": "warning"
-    },
-    "dns": {
-      "queryStrategy": "UseIP",
-      "servers": [
-        "https://1.1.1.1/dns-query",
-        "https://8.8.8.8/dns-query"
-      ]
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "auth": "noauth",
-          "udp": true
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true
-        },
-        "tag": "socks"
-      },
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "allowTransparent": false
-        },
-        "sniffing": {
-          "destOverride": [
-            "http",
-            "tls",
-            "quic"
-          ],
-          "enabled": true
-        },
-        "tag": "http"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "p0nch1k1.harcho.shop",
-              "port": 443,
-              "users": [
-                {
-                  "id": "f88bc31a-c30a-4a7f-bca6-5bc95d5bb593",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "p0nch1k1.harcho.shop",
-            "fingerprint": "firefox",
-            "publicKey": "yRiALDdYl3RIWzkAktpXyjEubuJOGSHQmGWNOSFvTh4",
-            "shortId": "91d82754d06c5d38",
-            "spiderX": "/"
-          }
-        },
-        "tag": "in-g-001"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      },
-      {
-        "protocol": "blackhole",
-        "tag": "block"
-      }
-    ],
-    "observatory": {
-      "subjectSelector": [
-        "in-g-"
-      ],
-      "probeUrl": "https://www.gstatic.com/generate_204",
-      "probeInterval": "5m",
-      "enableConcurrency": true
-    },
-    "routing": {
-      "domainMatcher": "hybrid",
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "protocol": [
-            "bittorrent"
-          ],
-          "outboundTag": "block"
-        },
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        },
-        {
-          "type": "field",
-          "domain": [
-            "geosite:category-ru",
-            "regexp:\\.(ru|su|xn--p1ai)$",
-            "gosuslugi.ru",
-            "esia.gosuslugi.ru",
-            "lk.gosuslugi.ru",
-            "pos.gosuslugi.ru",
-            "dom.gosuslugi.ru",
-            "gosweb.gosuslugi.ru",
-            "pravo.gov.ru",
-            "regulation.gov.ru",
-            "government.ru",
-            "kremlin.ru",
-            "duma.gov.ru",
-            "council.gov.ru",
-            "mchs.gov.ru",
-            "minzdrav.gov.ru",
-            "edu.gov.ru",
-            "minobrnauki.gov.ru",
-            "mintrud.gov.ru",
-            "sfr.gov.ru",
-            "pfr.gov.ru",
-            "rosreestr.gov.ru",
-            "nalog.ru",
-            "nalog.gov.ru",
-            "fns.ru",
-            "customs.gov.ru",
-            "mos.ru",
-            "mosreg.ru",
-            "spb.ru",
-            "gov.spb.ru",
-            "gu.spb.ru",
-            "eias.ru",
-            "rkn.gov.ru",
-            "cbr.ru",
-            "sberbank.ru",
-            "sber.ru",
-            "sberbank.com",
-            "online.sberbank.ru",
-            "sbermegamarket.ru",
-            "sbermarket.ru",
-            "sberdevices.ru",
-            "sbercloud.ru",
-            "cloud.ru",
-            "tbank.ru",
-            "tinkoff.ru",
-            "tinkoff.com",
-            "cdn-tinkoff.ru",
-            "static-tinkoff.ru",
-            "tinkoffcdn.ru",
-            "vtb.ru",
-            "vtb.com",
-            "alfabank.ru",
-            "alfabank.com",
-            "gazprombank.ru",
-            "gpb.ru",
-            "rshb.ru",
-            "psbank.ru",
-            "mkb.ru",
-            "sovcombank.ru",
-            "halvacard.ru",
-            "rosbank.ru",
-            "yoomoney.ru",
-            "yookassa.ru",
-            "qiwi.com",
-            "qiwi.ru",
-            "mirconnect.ru",
-            "nspk.ru",
-            "mironline.ru",
-            "sbp.nspk.ru",
-            "vkpay.ru",
-            "money.mail.ru",
-            "webmoney.ru",
-            "wmtransfer.com",
-            "ozon.ru",
-            "ozon.com",
-            "ozonusercontent.com",
-            "wildberries.ru",
-            "wb.ru",
-            "wbstatic.net",
-            "avito.ru",
-            "avito.st",
-            "lamoda.ru",
-            "dns-shop.ru",
-            "citilink.ru",
-            "mvideo.ru",
-            "eldorado.ru",
-            "technopark.ru",
-            "re-store.ru",
-            "detmir.ru",
-            "vseinstrumenti.ru",
-            "megamarket.ru",
-            "auchan.ru",
-            "magnit.ru",
-            "perekrestok.ru",
-            "pyaterochka.ru",
-            "chizhik.ru",
-            "vkusvill.ru",
-            "azbukavkusa.ru",
-            "goldapple.ru",
-            "lenta.com",
-            "dixy.ru",
-            "metro-cc.ru",
-            "okmarket.ru",
-            "spar.ru",
-            "eurospar.ru",
-            "fix-price.ru",
-            "hoff.ru",
-            "askona.ru",
-            "petshop.ru",
-            "fourlapy.ru",
-            "letu.ru",
-            "rivegauche.ru",
-            "sportmaster.ru",
-            "kari.com",
-            "zenden.ru",
-            "rendez-vous.ru",
-            "sunlight.net",
-            "sokolov.ru",
-            "585zolotoy.ru",
-            "lavka.yandex.ru",
-            "eda.yandex.ru",
-            "samokat.ru",
-            "delivery-club.ru",
-            "vkusnoitochka.ru",
-            "rostics.ru",
-            "kfc.ru",
-            "burgerking.ru",
-            "teremok.ru",
-            "dodopizza.ru",
-            "papajohns.ru",
-            "ilpatio.ru",
-            "sushiwok.ru",
-            "tanuki.ru",
-            "yakitoriya.ru",
-            "delitime.ru",
-            "rzd.ru",
-            "pass.rzd.ru",
-            "ticket.rzd.ru",
-            "tutu.ru",
-            "aviasales.ru",
-            "aeroflot.ru",
-            "s7.ru",
-            "pobeda.aero",
-            "utair.ru",
-            "smartavia.ru",
-            "redwings.aero",
-            "uralairlines.ru",
-            "onetwotrip.com",
-            "biletix.ru",
-            "yandex.travel",
-            "travel.yandex.ru",
-            "rasp.yandex.ru",
-            "taxi.yandex.ru",
-            "go.yandex.ru",
-            "drive.yandex.ru",
-            "2gis.ru",
-            "2gis.com",
-            "parking.mos.ru",
-            "transport.mos.ru",
-            "mosmetro.ru",
-            "metro.spb.ru",
-            "blablacar.ru",
-            "drom.ru",
-            "auto.ru",
-            "citymobil.ru",
-            "belkacar.ru",
-            "mts.ru",
-            "megafon.ru",
-            "beeline.ru",
-            "t2.ru",
-            "tele2.ru",
-            "rt.ru",
-            "rostelecom.ru",
-            "domru.ru",
-            "ertelecom.ru",
-            "tattelecom.ru",
-            "akado.ru",
-            "mgts.ru",
-            "onlime.ru",
-            "yota.ru",
-            "mtsbank.ru",
-            "yandex.ru",
-            "ya.ru",
-            "yandex.com",
-            "yandex.net",
-            "yastatic.net",
-            "yandex.st",
-            "yandex.cloud",
-            "yandex-team.ru",
-            "yandex.by",
-            "yandex.kz",
-            "yandex.uz",
-            "mc.yandex.ru",
-            "metrika.yandex.ru",
-            "appmetrica.yandex.ru",
-            "adfox.ru",
-            "yandexadexchange.net",
-            "dzen.ru",
-            "zen.yandex.ru",
-            "kinopoisk.ru",
-            "music.yandex.ru",
-            "afisha.yandex.ru",
-            "mail.yandex.ru",
-            "vk.com",
-            "vk.me",
-            "vkvideo.ru",
-            "userapi.com",
-            "vk-cdn.net",
-            "vkuser.net",
-            "mycdn.me",
-            "vkplay.ru",
-            "my.games",
-            "ok.ru",
-            "odnoklassniki.ru",
-            "okcdn.ru",
-            "mail.ru",
-            "inbox.ru",
-            "bk.ru",
-            "list.ru",
-            "internet.ru",
-            "my.com",
-            "imgsmail.ru",
-            "mradx.net",
-            "cloud.mail.ru",
-            "otvet.mail.ru",
-            "news.mail.ru",
-            "pogoda.mail.ru",
-            "auto.mail.ru",
-            "dom.mail.ru",
-            "deti.mail.ru",
-            "health.mail.ru",
-            "pets.mail.ru",
-            "kino.mail.ru",
-            "tv.mail.ru",
-            "lady.mail.ru",
-            "hi-tech.mail.ru",
-            "rutube.ru",
-            "smotrim.ru",
-            "vgtrk.ru",
-            "1tv.ru",
-            "ntv.ru",
-            "ren.tv",
-            "tvzvezda.ru",
-            "5-tv.ru",
-            "rbc.ru",
-            "rbc.tv",
-            "matchtv.ru",
-            "sportbox.ru",
-            "wink.ru",
-            "okko.tv",
-            "ivi.ru",
-            "more.tv",
-            "start.ru",
-            "premier.one",
-            "megafon.tv",
-            "beeline.tv",
-            "mts.tv",
-            "litnet.com",
-            "litmarket.ru",
-            "author.today",
-            "litres.ru",
-            "mybook.ru",
-            "bookmate.com",
-            "chitai-gorod.ru",
-            "labirint.ru",
-            "emias.info",
-            "medsi.ru",
-            "semeynyydoctor.ru",
-            "invitro.ru",
-            "helix.ru",
-            "gemotest.ru",
-            "cmd-online.ru",
-            "kdl.ru",
-            "citilab.ru",
-            "apteka.ru",
-            "zdravcity.ru",
-            "eapteka.ru",
-            "aptekamos.ru",
-            "rigla.ru",
-            "planetazdorovo.ru",
-            "asna.ru",
-            "uteka.ru",
-            "docdoc.ru",
-            "sberhealth.ru",
-            "prodoctorov.ru",
-            "napopravku.ru",
-            "hh.ru",
-            "headhunter.ru",
-            "rabota.ru",
-            "superjob.ru",
-            "zarplata.ru",
-            "trudvsem.ru",
-            "cian.ru",
-            "domclick.ru",
-            "domofond.ru",
-            "realty.yandex.ru",
-            "arenda.yandex.ru",
-            "m2.ru",
-            "etagi.com",
-            "youla.ru",
-            "dnevnik.ru",
-            "eljur.ru",
-            "netschool.ru",
-            "uchi.ru",
-            "yaklass.ru",
-            "foxford.ru",
-            "skysmart.ru",
-            "stepik.org",
-            "openedu.ru",
-            "lektorium.tv",
-            "skillbox.ru",
-            "geekbrains.ru",
-            "netology.ru",
-            "skyeng.ru",
-            "school.mos.ru",
-            "habr.com",
-            "habrastorage.org",
-            "tproger.ru",
-            "vc.ru",
-            "dtf.ru",
-            "spark.ru",
-            "rb.ru",
-            "cnews.ru",
-            "tadviser.ru",
-            "ixbt.com",
-            "3dnews.ru",
-            "fcenter.ru",
-            "overclockers.ru",
-            "pikabu.ru",
-            "fishki.net",
-            "yaplakal.com",
-            "drive2.ru",
-            "banki.ru",
-            "sravni.ru",
-            "ingosstrakh.ru",
-            "ingos.ru",
-            "sogaz.ru",
-            "reso.ru",
-            "alfastrah.ru",
-            "renins.ru",
-            "sberinsurance.ru",
-            "tinkoffinsurance.ru",
-            "vsk.ru",
-            "rosgosstrakh.ru",
-            "consultant.ru",
-            "garant.ru",
-            "sudact.ru",
-            "sudrf.ru",
-            "arbitr.ru",
-            "kad.arbitr.ru",
-            "vsrf.ru",
-            "cyberleninka.ru",
-            "elibrary.ru",
-            "gismeteo.ru",
-            "profi.ru",
-            "mosenergosbyt.ru",
-            "mosobleirc.ru",
-            "mosvodokanal.ru",
-            "dom.mos.ru",
-            "pesc.ru",
-            "lesta.ru",
-            "worldoftanks.ru",
-            "worldofwarships.ru",
-            "worldofwarplanes.ru",
-            "warface.com",
-            "warface.ru",
-            "allods.ru",
-            "lostark.ru",
-            "4game.ru",
-            "inn.ru",
-            "101xp.com",
-            "fogplay.ru"
-          ],
-          "outboundTag": "direct"
-        },
-        {
-          "type": "field",
-          "ip": [
-            "geoip:ru"
-          ],
-          "outboundTag": "direct"
-        },
-        {
-          "type": "field",
-          "network": "tcp,udp",
-          "balancerTag": "in-g-balancer"
-        }
-      ],
-      "balancers": [
-        {
-          "tag": "in-g-balancer",
-          "selector": [
-            "in-g-"
+            "id-g-"
           ],
           "strategy": {
             "type": "leastPing"
@@ -2623,7 +2614,7 @@
     }
   },
   {
-    "remarks": "🇷🇺 Россия | @RUXVPN",
+    "remarks": "🇱🇹 Литва | @RUXVPN",
     "log": {
       "loglevel": "warning"
     },
@@ -2673,37 +2664,27 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "hysteria",
         "settings": {
-          "vnext": [
-            {
-              "address": "46.173.26.242",
-              "port": 2083,
-              "users": [
-                {
-                  "id": "fb721937-6284-001a-9cbd-c3ba2cb66b4a",
-                  "encryption": "none"
-                }
-              ]
-            }
-          ]
+          "version": 2,
+          "address": "88.119.176.54",
+          "port": 443
         },
         "streamSettings": {
-          "network": "xhttp",
+          "network": "hysteria",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "cdn.mornismp.ru",
+            "serverName": "tuv10.harcho.shop",
             "alpn": [
-              "h2"
-            ],
-            "fingerprint": "edge"
+              "h3"
+            ]
           },
-          "xhttpSettings": {
-            "path": "/transport/xhttp",
-            "mode": "auto"
+          "hysteriaSettings": {
+            "version": 2,
+            "auth": "f88bc31a-c30a-4a7f-bca6-5bc95d5bb593"
           }
         },
-        "tag": "ru-g-001"
+        "tag": "lt-g-001"
       },
       {
         "protocol": "freedom",
@@ -2716,7 +2697,7 @@
     ],
     "observatory": {
       "subjectSelector": [
-        "ru-g-"
+        "lt-g-"
       ],
       "probeUrl": "https://www.gstatic.com/generate_204",
       "probeInterval": "5m",
@@ -3128,14 +3109,1683 @@
         {
           "type": "field",
           "network": "tcp,udp",
-          "balancerTag": "ru-g-balancer"
+          "balancerTag": "lt-g-balancer"
         }
       ],
       "balancers": [
         {
-          "tag": "ru-g-balancer",
+          "tag": "lt-g-balancer",
           "selector": [
-            "ru-g-"
+            "lt-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "🇳🇱 Нидерланды | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "185.231.204.70",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "318d9cc0-248f-4f44-b79a-1ba4fda95c08",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "www.aegon.com",
+            "fingerprint": "firefox",
+            "publicKey": "cj560j1TzKXUTD1UjZqPWGroeUtVc4CaIamhzbcxx14",
+            "shortId": "ab2ba1fb41ca9692",
+            "spiderX": "/"
+          },
+          "xhttpSettings": {
+            "path": "/23469c1d080089734bba4416",
+            "mode": "auto"
+          }
+        },
+        "tag": "nl-g-001"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "37.18.14.25",
+              "port": 18442,
+              "users": [
+                {
+                  "id": "f4b08bf1-d9bd-4755-aa88-ba922282c608",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "sbmicro731.alexdjane.am",
+            "fingerprint": "firefox",
+            "publicKey": "qcQLgmXcaZnmi6G19qfREf1_vj-f05z8CVW0q8-4vyQ",
+            "shortId": "fdf358c631f381c3",
+            "spiderX": "/v/7zpgq7humsv6y"
+          }
+        },
+        "tag": "nl-g-002"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "nl26.umarketvpn.pro",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "318d9cc0-248f-4f44-b79a-1ba4fda95c08",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "www.aegon.com",
+            "fingerprint": "edge",
+            "publicKey": "cj560j1TzKXUTD1UjZqPWGroeUtVc4CaIamhzbcxx14",
+            "shortId": "ab2ba1fb41ca9692",
+            "spiderX": "/"
+          },
+          "xhttpSettings": {
+            "path": "/23469c1d080089734bba4416",
+            "mode": "auto"
+          }
+        },
+        "tag": "nl-g-003"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "37.18.14.25",
+              "port": 18442,
+              "users": [
+                {
+                  "id": "f4b08bf1-d9bd-4755-aa88-ba922282c608",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "sbmicro731.alexdjane.am",
+            "fingerprint": "firefox",
+            "publicKey": "qcQLgmXcaZnmi6G19qfREf1_vj-f05z8CVW0q8-4vyQ",
+            "shortId": "fdf358c631f381c3",
+            "spiderX": "/"
+          }
+        },
+        "tag": "nl-g-004"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "nl-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "nl-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "nl-g-balancer",
+          "selector": [
+            "nl-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "🇵🇱 Польша | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "hysteria",
+        "settings": {
+          "version": 2,
+          "address": "rumos1.sky-vault.top",
+          "port": 443
+        },
+        "streamSettings": {
+          "network": "hysteria",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "rumos1.sky-vault.top",
+            "alpn": [
+              "h3"
+            ]
+          },
+          "hysteriaSettings": {
+            "version": 2,
+            "auth": "81f705b5-9039-4adf-8671-783095bba0e8"
+          }
+        },
+        "tag": "pl-g-001"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "pl-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "pl-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "pl-g-balancer",
+          "selector": [
+            "pl-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "🇷🇴 Румыния | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "rum-prsv-forum-reverse.keno.su",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5a9af404-4b34-4f21-a6b3-5cf506579722",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "rum-prsv-forum-reverse.keno.su",
+            "fingerprint": "firefox",
+            "publicKey": "YW3XTkK7iRW2W7UQJygEu0IiSnxTOHjcVe6qG_-l-SM",
+            "shortId": "a1b2c3d4e5f60718",
+            "spiderX": "/"
+          }
+        },
+        "tag": "ro-g-001"
+      },
+      {
+        "protocol": "hysteria",
+        "settings": {
+          "version": 2,
+          "address": "89.37.192.54",
+          "port": 443
+        },
+        "streamSettings": {
+          "network": "hysteria",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ro-87-58-205-146.sslip.io",
+            "alpn": [
+              "h3"
+            ]
+          },
+          "hysteriaSettings": {
+            "version": 2,
+            "auth": "6345ee32-7b62-4584-902d-07cfe588a02e"
+          }
+        },
+        "tag": "ro-g-002"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "ro-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "ro-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "ro-g-balancer",
+          "selector": [
+            "ro-g-"
           ],
           "strategy": {
             "type": "leastPing"
@@ -3199,11 +4849,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "api.videobereg.cc",
+              "address": "176.109.103.238",
               "port": 443,
               "users": [
                 {
-                  "id": "00994e33-4314-42c6-8b2a-0fb6346bc80a",
+                  "id": "1b7ee703-fa08-4305-8469-ae3e30e61e44",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision"
                 }
@@ -3215,10 +4865,10 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "api.videobereg.cc",
+            "serverName": "rumos.yandex-api.com",
             "fingerprint": "firefox",
-            "publicKey": "r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs",
-            "shortId": "a8",
+            "publicKey": "gQYbz6BaTE05ZD6sk_0lHZGsk2cXzt1cKdjVWZM_C2g",
+            "shortId": "badfead2ae4dca2e",
             "spiderX": "/"
           }
         },
@@ -4269,36 +5919,6 @@
         "settings": {
           "vnext": [
             {
-              "address": "fl1.sky-vault.top",
-              "port": 443,
-              "users": [
-                {
-                  "id": "81f705b5-9039-4adf-8671-783095bba0e8",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "fl1.sky-vault.top",
-            "fingerprint": "firefox",
-            "publicKey": "_KTsOFhGnC0W28ZqO8_FApozMp7tJ9cVBTLKLAA_OR0",
-            "shortId": "ae64c9b46bff174a",
-            "spiderX": "/"
-          }
-        },
-        "tag": "fi-g-001"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
               "address": "77.91.70.73",
               "port": 443,
               "users": [
@@ -4325,7 +5945,80 @@
             "mode": "auto"
           }
         },
+        "tag": "fi-g-001"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "fl1.sky-vault.top",
+              "port": 443,
+              "users": [
+                {
+                  "id": "81f705b5-9039-4adf-8671-783095bba0e8",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "fl1.sky-vault.top",
+            "fingerprint": "firefox",
+            "publicKey": "_KTsOFhGnC0W28ZqO8_FApozMp7tJ9cVBTLKLAA_OR0",
+            "shortId": "ae64c9b46bff174a",
+            "spiderX": "/"
+          }
+        },
         "tag": "fi-g-002"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "164.5.224.215",
+              "port": 61374,
+              "users": [
+                {
+                  "id": "f8d52ece-fad4-478d-875d-df6eed3befa7",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "fl-b3.golangwikito.cfd",
+            "fingerprint": "safari",
+            "publicKey": "QrNs0ew7snHqLfpVXS9RAhlRzgAzzGZK9fXmDcx9xHI",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "packet-up",
+            "host": "fl-b3.golangwikito.cfd",
+            "extra": {
+              "scMaxBufferedPosts": 10,
+              "scMaxEachPostBytes": "500000-1000000",
+              "scMinPostsIntervalMs": "20-40",
+              "xPaddingBytes": "100-500",
+              "xmux": {
+                "maxConnections": 3
+              }
+            }
+          }
+        },
+        "tag": "fi-g-003"
       },
       {
         "protocol": "freedom",
@@ -4767,6 +6460,525 @@
     }
   },
   {
+    "remarks": "🇫🇷 Франция | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "fr4.sky-vault.top",
+              "port": 443,
+              "users": [
+                {
+                  "id": "81f705b5-9039-4adf-8671-783095bba0e8",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "fr4.sky-vault.top",
+            "fingerprint": "firefox",
+            "publicKey": "_KTsOFhGnC0W28ZqO8_FApozMp7tJ9cVBTLKLAA_OR0",
+            "shortId": "ae64c9b46bff174a",
+            "spiderX": "/"
+          }
+        },
+        "tag": "fr-g-001"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "fr-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "fr-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "fr-g-balancer",
+          "selector": [
+            "fr-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
     "remarks": "🇨🇿 Чехия | @RUXVPN",
     "log": {
       "loglevel": "warning"
@@ -4821,6 +7033,40 @@
         "settings": {
           "vnext": [
             {
+              "address": "103.200.28.8",
+              "port": 25812,
+              "users": [
+                {
+                  "id": "893fdb90-b1a1-4235-8f0d-56aac1cfde9e",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "cz2.jetstoreapp.ru",
+            "fingerprint": "firefox",
+            "publicKey": "3g6uVc70EKi_XPzCTcZj_p77XJPpVUZvFNUPew4s0iU",
+            "shortId": "8643513c64b7f35e",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "7acacc2cc9d3",
+            "authority": "",
+            "multiMode": true
+          }
+        },
+        "tag": "cz-g-001"
+      },
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
               "address": "67.159.18.8",
               "port": 8443,
               "users": [
@@ -4848,7 +7094,7 @@
             "host": "www.novinky.cz"
           }
         },
-        "tag": "cz-g-001"
+        "tag": "cz-g-002"
       },
       {
         "protocol": "freedom",
@@ -5290,6 +7536,525 @@
     }
   },
   {
+    "remarks": "🇸🇪 Швеция | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "89.223.17.67",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5db72264-1d45-0068-8f7e-d1574b43008e",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "nohope-67-s4.mcdeliver.ru",
+            "fingerprint": "edge",
+            "publicKey": "Aj6Lfc0JKKROX46eHAQHlzrNpOTY9CKp7BcVj9cw8Ag",
+            "shortId": "75f8575e5396a2fe",
+            "spiderX": "/"
+          }
+        },
+        "tag": "se-g-001"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "se-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "se-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "se-g-balancer",
+          "selector": [
+            "se-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
     "remarks": "🇪🇪 Эстония | @RUXVPN",
     "log": {
       "loglevel": "warning"
@@ -5367,35 +8132,6 @@
           }
         },
         "tag": "ee-g-001"
-      },
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "82.202.182.32",
-              "port": 5269,
-              "users": [
-                {
-                  "id": "0d4807a7-260b-4d66-a71e-5e793c46c66e",
-                  "encryption": "none"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "max.ru",
-            "fingerprint": "qq",
-            "publicKey": "meI7RA9FgxL1yjJsbJBehEKoB2Z1ra4hyYJso9qtmFA",
-            "shortId": "4b198dc3bfffb7af",
-            "spiderX": "/"
-          }
-        },
-        "tag": "ee-g-002"
       },
       {
         "protocol": "freedom",
@@ -5828,6 +8564,530 @@
           "tag": "ee-g-balancer",
           "selector": [
             "ee-g-"
+          ],
+          "strategy": {
+            "type": "leastPing"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "remarks": "🇯🇵 Япония | @RUXVPN",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "queryStrategy": "UseIP",
+      "servers": [
+        "https://1.1.1.1/dns-query",
+        "https://8.8.8.8/dns-query"
+      ]
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "socks"
+      },
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "allowTransparent": false
+        },
+        "sniffing": {
+          "destOverride": [
+            "http",
+            "tls",
+            "quic"
+          ],
+          "enabled": true
+        },
+        "tag": "http"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "172.64.80.1",
+              "port": 443,
+              "users": [
+                {
+                  "id": "8344360f-0349-4784-a19f-33fd92e89389",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "sync.2ml.bid",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "fingerprint": "firefox"
+          },
+          "grpcSettings": {
+            "serviceName": "v3-direct",
+            "authority": "",
+            "multiMode": false
+          }
+        },
+        "tag": "jp-g-001"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "block"
+      }
+    ],
+    "observatory": {
+      "subjectSelector": [
+        "jp-g-"
+      ],
+      "probeUrl": "https://www.gstatic.com/generate_204",
+      "probeInterval": "5m",
+      "enableConcurrency": true
+    },
+    "routing": {
+      "domainMatcher": "hybrid",
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "protocol": [
+            "bittorrent"
+          ],
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "geosite:category-ru",
+            "regexp:\\.(ru|su|xn--p1ai)$",
+            "gosuslugi.ru",
+            "esia.gosuslugi.ru",
+            "lk.gosuslugi.ru",
+            "pos.gosuslugi.ru",
+            "dom.gosuslugi.ru",
+            "gosweb.gosuslugi.ru",
+            "pravo.gov.ru",
+            "regulation.gov.ru",
+            "government.ru",
+            "kremlin.ru",
+            "duma.gov.ru",
+            "council.gov.ru",
+            "mchs.gov.ru",
+            "minzdrav.gov.ru",
+            "edu.gov.ru",
+            "minobrnauki.gov.ru",
+            "mintrud.gov.ru",
+            "sfr.gov.ru",
+            "pfr.gov.ru",
+            "rosreestr.gov.ru",
+            "nalog.ru",
+            "nalog.gov.ru",
+            "fns.ru",
+            "customs.gov.ru",
+            "mos.ru",
+            "mosreg.ru",
+            "spb.ru",
+            "gov.spb.ru",
+            "gu.spb.ru",
+            "eias.ru",
+            "rkn.gov.ru",
+            "cbr.ru",
+            "sberbank.ru",
+            "sber.ru",
+            "sberbank.com",
+            "online.sberbank.ru",
+            "sbermegamarket.ru",
+            "sbermarket.ru",
+            "sberdevices.ru",
+            "sbercloud.ru",
+            "cloud.ru",
+            "tbank.ru",
+            "tinkoff.ru",
+            "tinkoff.com",
+            "cdn-tinkoff.ru",
+            "static-tinkoff.ru",
+            "tinkoffcdn.ru",
+            "vtb.ru",
+            "vtb.com",
+            "alfabank.ru",
+            "alfabank.com",
+            "gazprombank.ru",
+            "gpb.ru",
+            "rshb.ru",
+            "psbank.ru",
+            "mkb.ru",
+            "sovcombank.ru",
+            "halvacard.ru",
+            "rosbank.ru",
+            "yoomoney.ru",
+            "yookassa.ru",
+            "qiwi.com",
+            "qiwi.ru",
+            "mirconnect.ru",
+            "nspk.ru",
+            "mironline.ru",
+            "sbp.nspk.ru",
+            "vkpay.ru",
+            "money.mail.ru",
+            "webmoney.ru",
+            "wmtransfer.com",
+            "ozon.ru",
+            "ozon.com",
+            "ozonusercontent.com",
+            "wildberries.ru",
+            "wb.ru",
+            "wbstatic.net",
+            "avito.ru",
+            "avito.st",
+            "lamoda.ru",
+            "dns-shop.ru",
+            "citilink.ru",
+            "mvideo.ru",
+            "eldorado.ru",
+            "technopark.ru",
+            "re-store.ru",
+            "detmir.ru",
+            "vseinstrumenti.ru",
+            "megamarket.ru",
+            "auchan.ru",
+            "magnit.ru",
+            "perekrestok.ru",
+            "pyaterochka.ru",
+            "chizhik.ru",
+            "vkusvill.ru",
+            "azbukavkusa.ru",
+            "goldapple.ru",
+            "lenta.com",
+            "dixy.ru",
+            "metro-cc.ru",
+            "okmarket.ru",
+            "spar.ru",
+            "eurospar.ru",
+            "fix-price.ru",
+            "hoff.ru",
+            "askona.ru",
+            "petshop.ru",
+            "fourlapy.ru",
+            "letu.ru",
+            "rivegauche.ru",
+            "sportmaster.ru",
+            "kari.com",
+            "zenden.ru",
+            "rendez-vous.ru",
+            "sunlight.net",
+            "sokolov.ru",
+            "585zolotoy.ru",
+            "lavka.yandex.ru",
+            "eda.yandex.ru",
+            "samokat.ru",
+            "delivery-club.ru",
+            "vkusnoitochka.ru",
+            "rostics.ru",
+            "kfc.ru",
+            "burgerking.ru",
+            "teremok.ru",
+            "dodopizza.ru",
+            "papajohns.ru",
+            "ilpatio.ru",
+            "sushiwok.ru",
+            "tanuki.ru",
+            "yakitoriya.ru",
+            "delitime.ru",
+            "rzd.ru",
+            "pass.rzd.ru",
+            "ticket.rzd.ru",
+            "tutu.ru",
+            "aviasales.ru",
+            "aeroflot.ru",
+            "s7.ru",
+            "pobeda.aero",
+            "utair.ru",
+            "smartavia.ru",
+            "redwings.aero",
+            "uralairlines.ru",
+            "onetwotrip.com",
+            "biletix.ru",
+            "yandex.travel",
+            "travel.yandex.ru",
+            "rasp.yandex.ru",
+            "taxi.yandex.ru",
+            "go.yandex.ru",
+            "drive.yandex.ru",
+            "2gis.ru",
+            "2gis.com",
+            "parking.mos.ru",
+            "transport.mos.ru",
+            "mosmetro.ru",
+            "metro.spb.ru",
+            "blablacar.ru",
+            "drom.ru",
+            "auto.ru",
+            "citymobil.ru",
+            "belkacar.ru",
+            "mts.ru",
+            "megafon.ru",
+            "beeline.ru",
+            "t2.ru",
+            "tele2.ru",
+            "rt.ru",
+            "rostelecom.ru",
+            "domru.ru",
+            "ertelecom.ru",
+            "tattelecom.ru",
+            "akado.ru",
+            "mgts.ru",
+            "onlime.ru",
+            "yota.ru",
+            "mtsbank.ru",
+            "yandex.ru",
+            "ya.ru",
+            "yandex.com",
+            "yandex.net",
+            "yastatic.net",
+            "yandex.st",
+            "yandex.cloud",
+            "yandex-team.ru",
+            "yandex.by",
+            "yandex.kz",
+            "yandex.uz",
+            "mc.yandex.ru",
+            "metrika.yandex.ru",
+            "appmetrica.yandex.ru",
+            "adfox.ru",
+            "yandexadexchange.net",
+            "dzen.ru",
+            "zen.yandex.ru",
+            "kinopoisk.ru",
+            "music.yandex.ru",
+            "afisha.yandex.ru",
+            "mail.yandex.ru",
+            "vk.com",
+            "vk.me",
+            "vkvideo.ru",
+            "userapi.com",
+            "vk-cdn.net",
+            "vkuser.net",
+            "mycdn.me",
+            "vkplay.ru",
+            "my.games",
+            "ok.ru",
+            "odnoklassniki.ru",
+            "okcdn.ru",
+            "mail.ru",
+            "inbox.ru",
+            "bk.ru",
+            "list.ru",
+            "internet.ru",
+            "my.com",
+            "imgsmail.ru",
+            "mradx.net",
+            "cloud.mail.ru",
+            "otvet.mail.ru",
+            "news.mail.ru",
+            "pogoda.mail.ru",
+            "auto.mail.ru",
+            "dom.mail.ru",
+            "deti.mail.ru",
+            "health.mail.ru",
+            "pets.mail.ru",
+            "kino.mail.ru",
+            "tv.mail.ru",
+            "lady.mail.ru",
+            "hi-tech.mail.ru",
+            "rutube.ru",
+            "smotrim.ru",
+            "vgtrk.ru",
+            "1tv.ru",
+            "ntv.ru",
+            "ren.tv",
+            "tvzvezda.ru",
+            "5-tv.ru",
+            "rbc.ru",
+            "rbc.tv",
+            "matchtv.ru",
+            "sportbox.ru",
+            "wink.ru",
+            "okko.tv",
+            "ivi.ru",
+            "more.tv",
+            "start.ru",
+            "premier.one",
+            "megafon.tv",
+            "beeline.tv",
+            "mts.tv",
+            "litnet.com",
+            "litmarket.ru",
+            "author.today",
+            "litres.ru",
+            "mybook.ru",
+            "bookmate.com",
+            "chitai-gorod.ru",
+            "labirint.ru",
+            "emias.info",
+            "medsi.ru",
+            "semeynyydoctor.ru",
+            "invitro.ru",
+            "helix.ru",
+            "gemotest.ru",
+            "cmd-online.ru",
+            "kdl.ru",
+            "citilab.ru",
+            "apteka.ru",
+            "zdravcity.ru",
+            "eapteka.ru",
+            "aptekamos.ru",
+            "rigla.ru",
+            "planetazdorovo.ru",
+            "asna.ru",
+            "uteka.ru",
+            "docdoc.ru",
+            "sberhealth.ru",
+            "prodoctorov.ru",
+            "napopravku.ru",
+            "hh.ru",
+            "headhunter.ru",
+            "rabota.ru",
+            "superjob.ru",
+            "zarplata.ru",
+            "trudvsem.ru",
+            "cian.ru",
+            "domclick.ru",
+            "domofond.ru",
+            "realty.yandex.ru",
+            "arenda.yandex.ru",
+            "m2.ru",
+            "etagi.com",
+            "youla.ru",
+            "dnevnik.ru",
+            "eljur.ru",
+            "netschool.ru",
+            "uchi.ru",
+            "yaklass.ru",
+            "foxford.ru",
+            "skysmart.ru",
+            "stepik.org",
+            "openedu.ru",
+            "lektorium.tv",
+            "skillbox.ru",
+            "geekbrains.ru",
+            "netology.ru",
+            "skyeng.ru",
+            "school.mos.ru",
+            "habr.com",
+            "habrastorage.org",
+            "tproger.ru",
+            "vc.ru",
+            "dtf.ru",
+            "spark.ru",
+            "rb.ru",
+            "cnews.ru",
+            "tadviser.ru",
+            "ixbt.com",
+            "3dnews.ru",
+            "fcenter.ru",
+            "overclockers.ru",
+            "pikabu.ru",
+            "fishki.net",
+            "yaplakal.com",
+            "drive2.ru",
+            "banki.ru",
+            "sravni.ru",
+            "ingosstrakh.ru",
+            "ingos.ru",
+            "sogaz.ru",
+            "reso.ru",
+            "alfastrah.ru",
+            "renins.ru",
+            "sberinsurance.ru",
+            "tinkoffinsurance.ru",
+            "vsk.ru",
+            "rosgosstrakh.ru",
+            "consultant.ru",
+            "garant.ru",
+            "sudact.ru",
+            "sudrf.ru",
+            "arbitr.ru",
+            "kad.arbitr.ru",
+            "vsrf.ru",
+            "cyberleninka.ru",
+            "elibrary.ru",
+            "gismeteo.ru",
+            "profi.ru",
+            "mosenergosbyt.ru",
+            "mosobleirc.ru",
+            "mosvodokanal.ru",
+            "dom.mos.ru",
+            "pesc.ru",
+            "lesta.ru",
+            "worldoftanks.ru",
+            "worldofwarships.ru",
+            "worldofwarplanes.ru",
+            "warface.com",
+            "warface.ru",
+            "allods.ru",
+            "lostark.ru",
+            "4game.ru",
+            "inn.ru",
+            "101xp.com",
+            "fogplay.ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:ru"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "network": "tcp,udp",
+          "balancerTag": "jp-g-balancer"
+        }
+      ],
+      "balancers": [
+        {
+          "tag": "jp-g-balancer",
+          "selector": [
+            "jp-g-"
           ],
           "strategy": {
             "type": "leastPing"
